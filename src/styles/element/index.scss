@@ -19,10 +19,10 @@ $--colors: (
   ),
 );
 
-// we can add this to custom namespace, default is 'el'
-@forward 'element-plus/theme-chalk/src/mixins/config.scss' with (
-  $namespace: 'ep'
-);
+// we can add this to custom namespace, default is 'el'自定义命名空间，用于同一个项目多个主题的情况？就是因为这行代码替换主题一直不成功 排死我了😭
+// @forward 'element-plus/theme-chalk/src/mixins/config.scss' with (
+//   $namespace: 'ep'
+// );
 
 // You should use them in scss, because we calculate it by sass.
 // comment next lines to use default color
@@ -39,4 +39,4 @@ $--colors: (
 // @debug $--colors;
 
 // custom dark variables
-@use './dark.scss';
+// @use './dark.scss';
