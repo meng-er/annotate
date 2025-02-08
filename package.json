@@ -9,7 +9,6 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@pdftron/webviewer": "^11.2.0",
     "axios": "^1.7.9",
     "element-plus": "^2.9.3",
     "nprogress": "^0.2.0",

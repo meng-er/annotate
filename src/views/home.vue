@@ -1,36 +1,32 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 
-defineProps<{ msg: string }>();
+// defineProps<{ msg: string }>();
+const uploadDom = ref();
 
-const count = ref(0);
+const pdf2base64 = () => {
+  uploadDom.value?.addEventListener("change", function (event: any) {
+    // console.log(event);
+    const file = event.target?.files?.[0];
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = function (e) {
+        const base64String = e.target?.result;
+        // document.getElementById("base64Output").textContent = base64String;
+        console.log(base64String); // 输出到控制台
+      };
+      reader.readAsDataURL(file); // 读取文件并转换为 Base64
+    }
+  });
+};
+onMounted(() => {
+  pdf2base64();
+});
 </script>
 
 <template>
-  <!-- ... -->
-  <h1>{{ msg }}</h1>
-
-  <div class="card">
-    <el-button type="primary" @click="count++">count is {{ count }}</el-button>
-    <p>
-      Edit
-      <code>components/HelloWorld.vue</code> to test HMR
-    </p>
-  </div>
-
-  <p>
-    Check out
-    <a href="https://vuejs.org/guide/quick-start.html#local" target="_blank">create-vue</a>, the official Vue + Vite starter
-  </p>
-  <p>
-    Learn more about IDE Support for Vue in the
-    <a href="https://vuejs.org/guide/scaling-up/tooling.html#ide-support" target="_blank">Vue Docs Scaling up Guide</a>.
-  </p>
-  <p class="read-the-docs">Click on the Vite and Vue logos to learn more</p>
+  <input type="file" accept=".pdf" ref="uploadDom" />
+  <div id="base64Output"></div>
 </template>
 
-<style scoped>
-.read-the-docs {
-  color: #888;
-}
-</style>
+<style lang="scss" scoped></style>
