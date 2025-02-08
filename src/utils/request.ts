@@ -64,7 +64,7 @@ service.interceptors.response.use(
         //   message: "登录失效，请重新登录",
         //   theme: "round-button",
         // }).then(() => {
-        router.replace("/");
+        // router.replace("/");
         // });
         return Promise.reject(res);
       } else {

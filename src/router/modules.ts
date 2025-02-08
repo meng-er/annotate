@@ -1,20 +1,19 @@
-import { RouteRecordRaw } from "vue-router";
+import type { RouteRecordRaw } from "vue-router";
 
 export const defaultRouter: Array<RouteRecordRaw> = [
   { path: "/:catchall(.*)", redirect: "/404" },
   {
     path: "/",
-    name: "/",
-    redirect: "/report",
-    // component: () => import('@/views/home.vue'),
+    redirect: "/home",
+  },
+  {
+    path: "/home",
+    name: "/home",
+    component: () => import("@/views/home.vue"),
     meta: {
       title: "首页",
       keepAlive: false, //组件在切换时是否缓存
       index: 1,
-      transition: {
-        enable: true,
-        name: "",
-      },
     },
   },
   {
@@ -25,10 +24,6 @@ export const defaultRouter: Array<RouteRecordRaw> = [
       title: "404",
       keepAlive: false,
       index: 1,
-      transition: {
-        enable: true,
-        name: "van-fade",
-      },
     },
   },
   // {

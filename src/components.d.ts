@@ -20,7 +20,7 @@ declare module 'vue' {
     ElSubMenu: typeof import('element-plus/es')['ElSubMenu']
     ElSwitch: typeof import('element-plus/es')['ElSwitch']
     ElTag: typeof import('element-plus/es')['ElTag']
-    HelloWorld: typeof import('./components/HelloWorld.vue')['default']
+    Home: typeof import('./views/home.vue')['default']
     Logos: typeof import('./components/Logos.vue')['default']
     MessageBoxDemo: typeof import('./components/MessageBoxDemo.vue')['default']
     RouterLink: typeof import('vue-router')['RouterLink']

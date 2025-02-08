@@ -13,6 +13,7 @@ const router = createRouter({
 
 router.beforeEach((to, from, next) => {
   // setDocumentTitle(to.meta.title as string)
+  console.log('Navigating from', from.path, 'to', to.path)
 
   next();
 });
